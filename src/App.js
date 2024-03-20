@@ -12,6 +12,7 @@ import Instagrame from "./pages/Instagrame";
 import NavBar from "./components/NavBar";
 import ErrorMessage from "./ErrorMessage";
 import Footer from "./footer";
+import Context from "./components/context/Context";
 
 function App() {
   const router = createBrowserRouter(
@@ -29,7 +30,9 @@ function App() {
   return (
     <div className="App">
    
-        <RouterProvider router={router} />
+   <Context>
+  <RouterProvider router={router} />
+   </Context>
    <Footer/>
     </div>
   );

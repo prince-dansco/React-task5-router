@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import UseFetch from "../components/useFetch";
+import { myContext } from "../components/context/Context";
 
 const Instagrame = () => {
   const { id } = useParams();
-  const { error, isLoading, data } = UseFetch(
-    "https://fakestoreapi.com/products/" + id
-  );
-
+  const{GetSingleItem, data, isLoading, error} = useContext(myContext)
+  useEffect(()=>{
+    GetSingleItem(`https://fakestoreapi.com/products/${id}`)
+  },[])
   return (
     <div>
       {isLoading && <h2>loading...</h2>}
